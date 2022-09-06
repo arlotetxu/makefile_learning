@@ -1,6 +1,6 @@
 #Learning makefile estructure
 
-NAME = programa
+NAME = programa.a
 SRC = main.c hello_utils.c
 OBJS = $(SRC:%.c=%.o)
 
@@ -9,19 +9,22 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -rf
 
+AR      = ar 
+AFLAG   = -rcs
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAG) $(OBJS) -o $(NAME)
+    $(AR) $(AFLAG) $(NAME) $(OBJS)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $(SRC)
+    $(CC) $(CFLAGS) -c $(SRC)
 
 clean:
-	$(RM) $(wildcard *.o)
+    $(RM) $(wildcard *.o)
 
 fclean: clean
-	$(RM) $(NAME)
+    $(RM) $(NAME)
 
 re: fclean all
 
