@@ -2,15 +2,27 @@
 
 NAME = programa
 SRC = main.c hello_utils.c
-OBJS = main.o hello_utils.o
+OBJS = $(SRC:%.c=%.o)
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
+RM = rm -rf
+
 all: $(NAME)
 
-$(NAME): $(SRC) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAG) $(OBJS) -o $(NAME)
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $(SRC)
 
 clean:
-	rm -rf main.o hello_utils.o a.out programa
+	$(RM) $(wildcard *.o)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

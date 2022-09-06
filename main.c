@@ -6,7 +6,7 @@
 /*   By: jflorido <jflorido@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:27:31 by jflorido          #+#    #+#             */
-/*   Updated: 2022/09/06 11:15:30 by jflorido         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:34:27 by jflorido         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@
 int	main(void)
 {
 	ft_print_hello();
-	return (0);	
+	return (0);
 }
