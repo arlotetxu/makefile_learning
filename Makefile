@@ -1,25 +1,18 @@
-#makefile de prueba
+#Learning makefile estructure
 
-#OBJ = main.o hellp_utilis.o 
-#PROGRAMA = programa 
+NAME = programa
+SRC = main.c hello_utils.c
+OBJS = main.o hello_utils.o
 
-#CC = gcc
-#CFLAGS = -Wall -Werror -Wextra
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
 
+all: $(NAME)
 
-#$(PROGRAMA) : $(OBJ)
-#	$(CC) $(CFLAGS)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-
-
-# A partir de aqui es miS REGLAS
-
-o_files: main.c hello_utils.c
-	gcc -c -Wall -Werror -Wextra main.c hello_utils.c
-	
-
-programa: main.o hello_utils.o
-	gcc -Wall -Wextra -Werror main.o hello_utils.o -o programa
-
+o_files: $(SRC)
+	$(CC) -c $(CFLAGS) $(SRC)
 clean:
-	rm -rf main.o hello_utils.o hello.h.gch a.out programa
+	rm -rf main.o hello_utils.o a.out programa
